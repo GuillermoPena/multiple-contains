@@ -1,39 +1,6 @@
+var contains = require('../contains.js')
 
-# Contains
-
-Search item in container. Return index, existence, object... anything you want
-...and search in arrays, arrays of objects, strings, numbers!
-
-## How Install
-
-	npm install contains
-
-## How it works
-
-Search different info in container in order to mode value
-
-Type of containers:
-	Number
-	String
-	Array
-	TODO: Object
-
-Type of 'items':
-	Object: with 'key' and 'value' to find in array of objects or in object
-	String: contained in array, key of object, substring of string...
-	Number: contained in array, substring of string, digit of number...
-
-Mode values (default: 'index'):
-	'exists': return true or false if item exists in container
-	'index' : return index of item in container (default: -1)
-	'object': return full item
-	TODO:'subarray': return subarray with items in container
-	TODO: 'repetitions': return how many times is item in container
-
-
-## Quick Examples
-
-```var array1 = [ 'papa', 'pepe', 'pipi' ]
+var array1 = [ 'papa', 'pepe', 'pipi' ]
 var array2 = [ { "sex":"H", "name":"paco" }
              , { "sex":"M", "name":"pepa" }
              , { "sex":"H", "name":"pepe" }
