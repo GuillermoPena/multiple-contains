@@ -17,7 +17,7 @@ Search different info in container in order to mode value
 		- Number
 		- String
 		- Array
-		- ~~Object.~~
+		- TODO: Object
 
 
 	* Type of 'items':
@@ -32,8 +32,8 @@ Search different info in container in order to mode value
 		- 'exists': return true or false if item exists in container
 		- 'index' : return index of item in container (default: -1)
 		- 'object': return full item
-		- ~~'subarray': return subarray with items in container.~~
-		- ~~'repetitions': return how many times is item in container.~~
+		- TODO: 'subarray': return subarray with items in container
+		- TODO: 'repetitions': return how many times is item in container
 
 
 ## Quick Examples
