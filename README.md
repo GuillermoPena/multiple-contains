@@ -33,7 +33,8 @@ Mode values (default: 'index'):
 
 ## Quick Examples
 
-```var array1 = [ 'papa', 'pepe', 'pipi' ]
+```
+var array1 = [ 'papa', 'pepe', 'pipi' ]
 var array2 = [ { "sex":"H", "name":"paco" }
              , { "sex":"M", "name":"pepa" }
              , { "sex":"H", "name":"pepe" }
@@ -122,3 +123,4 @@ console.dir("Number: " + number + " - Digit or subnumber to find: " +  subnumber
 console.log("Exists? " + contains(number, subnumber, 'exists'))
 console.log("Index: "  + contains(number, subnumber))
 console.log("Object: " + contains(number, subnumber, 'object'))
+```
