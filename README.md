@@ -6,29 +6,34 @@ Search item in container. Return index, existence, object... anything you want
 
 ## How Install
 
-	npm install contains
+	npm install multiple-contains
 
 ## How it works
 
 Search different info in container in order to mode value
 
 	* Type of containers:
-	- Number
-	- String
-	- Array
-	- ~~Object~~
+
+		- Number
+		- String
+		- Array
+		- ~~Object~~
+
 
 	* Type of 'items':
-	- Object: with 'key' and 'value' to find in array of objects or in object
-	- String: contained in array, key of object, substring of string...
-	- Number: contained in array, substring of string, digit of number...
+
+		- Object: with 'key' and 'value' to find in array of objects or in object
+		- String: contained in array, key of object, substring of string...
+		- Number: contained in array, substring of string, digit of number...
+
 
 	* Mode values (default: 'index'):
-	- 'exists': return true or false if item exists in container
-	- 'index' : return index of item in container (default: -1)
-	- 'object': return full item
-	- ~~'subarray': return subarray with items in container~~
-	- ~~'repetitions': return how many times is item in container~~
+
+		- 'exists': return true or false if item exists in container
+		- 'index' : return index of item in container (default: -1)
+		- 'object': return full item
+		- ~~'subarray': return subarray with items in container~~
+		- ~~'repetitions': return how many times is item in container~~
 
 
 ## Quick Examples
@@ -43,6 +48,7 @@ var array2 = [ { "sex":"H", "name":"paco" }
 
 // --- Test 1 ------------------------------------------------------------------
 
+var contains = require('multiple-contains')
 console.log("\nTest 1: Searching item ('pepe') in array")
 console.dir(array1)
 

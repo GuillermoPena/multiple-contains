@@ -1,4 +1,4 @@
-var contains = require('../contains.js')
+var contains = require('../multiple-contains.js')
 
 var array1 = [ 'papa', 'pepe', 'pipi' ]
 var array2 = [ { "sex":"H", "name":"paco" }

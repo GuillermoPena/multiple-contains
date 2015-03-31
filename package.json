@@ -1,7 +1,7 @@
-{ "name": "contains"
+{ "name": "multiple-contains"
 , "version": "0.0.1"
 , "description": "Search item in container. Return index, existence, object... anything you want"
-, "homepage": "http://github.com/GuillermoPena/contains"
+, "homepage": "http://github.com/GuillermoPena/multiple-contains"
 , "keywords": ["array", "element", "search", "find"]
 , "author":
   { "name": "Guillermo Peña"
@@ -13,7 +13,7 @@
   }
 , "repository":
   { "type": "git"
-  , "url": "git://github.com/GuillermoPena/contains.git"
+  , "url": "git://github.com/GuillermoPena/multiple-contains.git"
   }
 , "bugs": { "web": "http://github.com/GuillermoPena/contains/issues/" }
 , "directories": { "test": "./test" }
@@ -24,5 +24,5 @@
     }
   ]
 , "dependencies": { }
-, "main": "./contains.js"
+, "main": "./multiple-contains.js"
 }
