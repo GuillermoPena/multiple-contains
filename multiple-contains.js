@@ -1,6 +1,6 @@
 /* ___________________________________________________________________________
 
-  File: contains.js   Version: v0.0.2
+  File: contains.js   Version: v0.0.3
   Repository: http://github.com/GuillermoPena/contains
   Author: Guillermo Peña (guillermo.pena.cardano@gmail.com)
   Last update: 31/03/2015
