@@ -21,9 +21,11 @@
 
   Mode values (default: 'index'):
     'exists': return true or false if item exists in container
-    'index' : return index of item in container (default: -1)
-    'filter': return array with matched items or indexes in string or number
-    'repetitions': return how many times is item in container
+    'index' : return first index of item in container (default: -1)
+    'filter': return subarray with matched items in array or regular expresions
+    results in string or number
+    'repetitions': return how many times is item or regular expresion in
+    container
 
 __________________________________________________________________________*/
 
@@ -80,9 +82,9 @@ var searchInArray = function(array, itemOrFilter, mode) {
 // Search substring or char in string.
 var searchInString = function(string, item, mode) {
   var index    = string.indexOf(item)
-  var filtered = []
+  var filtered = string.match(new RegExp(item, 'g'))
   var found    = { "index": index
-                 , "filtered": filtered
+                 , "filtered": filtered || []
                  }
   return found
 }
@@ -115,7 +117,7 @@ module.exports = function contains (container, item, mode) {
   // TODO: Search into object's properties
   //else if (container instanceof Object)  found = searchInObject(container, item)
 
-  if (mode == 'exists') return (found.index != -1 || found.filtered.length > 0)
+  if (mode == 'exists') return found.index != -1
   if (mode == 'index')  return found.index
   if (mode == 'filter') return found.filtered
   if (mode == 'repetitions') return found.filtered.length
