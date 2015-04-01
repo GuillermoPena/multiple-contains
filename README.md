@@ -12,36 +12,36 @@ Return index, existence, object, repetitions... anything you want!
 
 Search different info in container in order to mode value
 
-	Type of containers:
+Type of containers:
 
-		- Number
-		- String
-		- Array
-		- TODO: Object
-
-
-	Type of 'items':
-
-		- Object: with 'key' and 'value' to find in array of objects or in object
-		- String: contained in array, key of object, substring of string...
-		- Number: contained in array, substring of string, digit of number...
+  - Number
+  - String
+  - Array
+  - TODO: Object
 
 
-	Mode values (default: 'index'):
+Type of 'items':
 
-		- 'exists': return true or false if item exists in container
-		- 'index' : return first index of item in container (default: -1)
-		- 'object': return full item
-		- 'filter': return subarray with matched items in array or regular expresions
-    results in string or number
-    - 'repetitions': return how many times is item or regular expresion in
-    container
+  - Object: with 'key' and 'value' to find in array of objects or in object
+  - String: contained in array, key of object, substring of string...
+  - Number: contained in array, substring of string, digit of number...
+
+
+Mode values (default: 'index'):
+
+  - 'exists': return true or false if item exists in container
+  - 'index' : return first index of item in container (default: -1)
+  - 'object': return full item
+  - 'filter': return subarray with matched items in array or regular expresions
+results in string or number
+  - 'repetitions': return how many times is item or regular expresion in
+container
 
 
 ## Quick Examples
 
-Test 1a: Searching item ('pepe') in array --> Found!
-Test 1b: Searching item ('pep') in array  --> Not Found!
+Test 1a: Searching item ('pepe') in array --> Found.
+Test 1b: Searching item ('pep') in array  --> Not Found.
 
 ```
 var contains = require('../multiple-contains.js')
@@ -74,8 +74,8 @@ console.log("Repetitions: " + contains(array1, toFind, 'repetitions'))
 
 ```
 
-Test 2a: Searching object ({'sex':'F','name':'pepa'}) in array of objects --> Found!
-Test 2b: Searching object ({'sex':'F','name':'pep'}) in array of objects  --> Not Found!
+Test 2a: Searching object ({'sex':'F','name':'pepa'}) in array of objects --> Found.
+Test 2b: Searching object ({'sex':'F','name':'pep'}) in array of objects  --> Not Found.
 
 ```
 // --- Test 2 ------------------------------------------------------------------
@@ -97,9 +97,9 @@ console.log("Repetitions: " + contains(array2, toFind, 'repetitions'))
 
 ```
 
-Test 3a: Searching object by simple pattern --> Found!
-Test 3b: Searching object by double pattern --> Found!
-Test 3c: Searching object by double pattern --> Not Found!
+Test 3a: Searching object by simple pattern --> Found.
+Test 3b: Searching object by double pattern --> Found.
+Test 3c: Searching object by double pattern --> Not Found.
 
 ```
 // --- Test 3 ------------------------------------------------------------------
@@ -130,8 +130,8 @@ console.log("Repetitions: " + contains(array2, pattern, 'repetitions'))
 
 ```
 
-Test 4a: Searching substring by regular expresion (/el./g)  --> Found!
-Test 4b: Searching substring by regular expresion (/xxx/g)  --> Not Found!
+Test 4a: Searching substring by regular expresion (/el./g)  --> Found.
+Test 4b: Searching substring by regular expresion (/xxx/g)  --> Not Found.
 
 ```
 // --- Test 4 ------------------------------------------------------------------
@@ -156,8 +156,8 @@ console.log("Repetitions: " + contains(word, substring, 'repetitions'))
 
 ```
 
-Test 5a: Searching numbers by regular expresion (/23./g) --> Found!
-Test 5b: Searching numbers by regular expresion (/00/g)  --> Not Found!
+Test 5a: Searching numbers by regular expresion (/23./g) --> Found.
+Test 5b: Searching numbers by regular expresion (/00/g)  --> Not Found.
 
 ```
 // --- Test 5 ------------------------------------------------------------------
