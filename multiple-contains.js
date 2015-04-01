@@ -1,11 +1,12 @@
 /* ___________________________________________________________________________
 
-  File: contains.js   Version: v0.1
+  File: contains.js   Version: v0.2
   Repository: http://github.com/GuillermoPena/contains
   Author: Guillermo Peña (guillermo.pena.cardano@gmail.com)
   Last update: 31/03/2015
 
-  Search different info in container in order to mode value
+  Search item in container (arrays, arrays of objects, strings, numbers...).
+  Return index, existence, object, repetitions... anything you want!
 
   Type of containers:
     Number
@@ -21,35 +22,55 @@
   Mode values (default: 'index'):
     'exists': return true or false if item exists in container
     'index' : return index of item in container (default: -1)
-    'object': return full item
-    TODO:'subarray': return subarray with items in container
-    TODO: 'repetitions': return how many times is item in container
+    'filter': return array with matched items or indexes in string or number
+    'repetitions': return how many times is item in container
 
 __________________________________________________________________________*/
 
+
+// Compare item with filter or another item
+var checkItem = function(item, itemOrFilter, found) {
+
+  // Defining array of filters
+  var filters = []
+  if (!Array.isArray(itemOrFilter)) {
+    if (itemOrFilter.key != undefined)
+      filters.push(itemOrFilter)
+  } else {
+    filters = itemOrFilter
+  }
+
+  // Filtering
+  if (filters.length > 0) {
+    var i = 0
+    var match = true
+    while (match && i < filters.length) {
+      match = (item[filters[i].key] === filters[i].value)
+      i++
+    }
+    return match
+  }
+
+  // Matching
+  else {
+    return (JSON.stringify(item) === JSON.stringify(itemOrFilter))
+  }
+}
+
 // Search item in array.
-var searchInArray = function(array, item) {
+var searchInArray = function(array, itemOrFilter, mode) {
   var found = { "index": -1
               , "exists": false
-              , "object": null
+              , "filtered": []
+              , "repetitions": 0
               }
   var i = 0
-  while (found.index == -1 && found.object == null && i < array.length) {
-    if (item.key != undefined && item.value != undefined) {
-      var itemObj = array[i]
-      if (itemObj[item.key] === item.value) {
-        found.index = i
-        found.exists = true
-        found.object = array[i]
-      }
-    }
-
-    // Order in object properties are inportant!
-    if ( found.object == null
-      && JSON.stringify(array[i]) === JSON.stringify(item)) {
+  var end = false
+  while ( i < array.length && !end) {
+    end = (mode != 'filter' && mode != 'repetitions' && found.index != -1)
+    if (checkItem(array[i], itemOrFilter, found)) {
       found.index = i
-      found.exists = true
-      found.object = array[i]
+      found.filtered.push(array[i])
     }
     i++
   }
@@ -57,45 +78,46 @@ var searchInArray = function(array, item) {
 }
 
 // Search substring or char in string.
-var searchInString = function(string, item) {
-
-  var index  = string.indexOf(item)
-  var exists = (index != -1)
-  var object = (exists) ? item : null
-  var found = { "index":  index
-              , "exists": exists
-              , "object": object
-              }
+var searchInString = function(string, item, mode) {
+  var index    = string.indexOf(item)
+  var filtered = []
+  var found    = { "index": index
+                 , "filtered": filtered
+                 }
   return found
 }
 
 // Search digit or subnumber in number.
-var searchInNumber = function(number, item) {
+var searchInNumber = function(number, item, mode) {
   var strnumber = number.toString()
   return searchInString(strnumber, item)
 }
 
 
+// Main function
 module.exports = function contains (container, item, mode) {
 
   mode = (mode || 'index')
-  if (mode != 'subarray' && mode != 'repetitions') {
-    var found = null
-    if (typeof container == "number")      found = searchInNumber(container, item)
-    else if ( typeof container == "string"
-           || container instanceof String) found = searchInString(container, item)
-    else if (Array.isArray(container))     found = searchInArray(container, item)
+  var found = null
 
-    // TODO: Search into object's properties
-    //else if (container instanceof Object)  found = searchInObject(container, item)
+  // Searching in number
+  if (typeof container == "number")
+    found = searchInNumber(container, item, mode)
 
-    if (mode == 'exists') return found.exists
-    if (mode == 'object') return found.object
-    if (mode == 'index')  return found.index
-  }
+  // Searching in string
+  else if (typeof container == "string" || container instanceof String)
+    found = searchInString(container, item, mode)
 
-  // TODO: obtain subarrays and repetitions
-  //if (mode == 'subarray')    return getArray(container, item)
-  //if (mode == 'repetitions') return getRepts(container, item)
+  // Searching in array
+  else if (Array.isArray(container))
+    found = searchInArray(container, item, mode)
+
+  // TODO: Search into object's properties
+  //else if (container instanceof Object)  found = searchInObject(container, item)
+
+  if (mode == 'exists') return (found.index != -1 || found.filtered.length > 0)
+  if (mode == 'index')  return found.index
+  if (mode == 'filter') return found.filtered
+  if (mode == 'repetitions') return found.filtered.length
   return null
 }

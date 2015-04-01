@@ -1,8 +1,8 @@
 
 # Contains
 
-Search item in container. Return index, existence, object... anything you want
-...and search in arrays, arrays of objects, strings, numbers!
+Search item in container (arrays, arrays of objects, strings, numbers...). 
+Return index, existence, object, repetitions... anything you want!
 
 ## How Install
 
@@ -32,8 +32,8 @@ Search different info in container in order to mode value
 		- 'exists': return true or false if item exists in container
 		- 'index' : return index of item in container (default: -1)
 		- 'object': return full item
-		- TODO: 'subarray': return subarray with items in container
-		- TODO: 'repetitions': return how many times is item in container
+		- 'subarray': return array with matched items or indexes in string or number
+		- 'repetitions': return how many times is item in container
 
 
 ## Quick Examples
