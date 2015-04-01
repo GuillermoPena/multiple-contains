@@ -31,7 +31,7 @@ __________________________________________________________________________*/
 
 
 // Compare item with filter or another item
-var checkItem = function(item, itemOrFilter, found) {
+var checkItem = function(item, itemOrFilter) {
 
   // Defining array of filters
   var filters = []
@@ -61,16 +61,12 @@ var checkItem = function(item, itemOrFilter, found) {
 
 // Search item in array.
 var searchInArray = function(array, itemOrFilter, mode) {
-  var found = { "index": -1
-              , "exists": false
-              , "filtered": []
-              , "repetitions": 0
-              }
+  var found = { "index": -1, "filtered": []}
   var i = 0
   var end = false
   while ( i < array.length && !end) {
     end = (mode != 'filter' && mode != 'repetitions' && found.index != -1)
-    if (checkItem(array[i], itemOrFilter, found)) {
+    if (checkItem(array[i], itemOrFilter)) {
       found.index = i
       found.filtered.push(array[i])
     }
@@ -81,8 +77,8 @@ var searchInArray = function(array, itemOrFilter, mode) {
 
 // Search substring or char in string.
 var searchInString = function(string, item, mode) {
-  var index    = string.indexOf(item)
   var filtered = string.match(new RegExp(item, 'g'))
+  var index    = (filtered) ? string.indexOf(filtered[0]) : -1
   var found    = { "index": index
                  , "filtered": filtered || []
                  }
@@ -100,7 +96,7 @@ var searchInNumber = function(number, item, mode) {
 module.exports = function contains (container, item, mode) {
 
   mode = (mode || 'index')
-  var found = null
+  var found = { "index": -1, "filtered": []}
 
   // Searching in number
   if (typeof container == "number")
@@ -113,13 +109,15 @@ module.exports = function contains (container, item, mode) {
   // Searching in array
   else if (Array.isArray(container))
     found = searchInArray(container, item, mode)
+  else console.log("Container type not allowed")
 
   // TODO: Search into object's properties
   //else if (container instanceof Object)  found = searchInObject(container, item)
 
-  if (mode == 'exists') return found.index != -1
+  if (mode == 'exists') return found.filtered.length > 0
   if (mode == 'index')  return found.index
   if (mode == 'filter') return found.filtered
   if (mode == 'repetitions') return found.filtered.length
+  console.log("Mode not allowed")
   return null
 }
