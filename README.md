@@ -41,6 +41,7 @@ container
 ## Quick Examples
 
 Test 1a: Searching item ('pepe') in array --> Found.
+
 Test 1b: Searching item ('pep') in array  --> Not Found.
 
 ```
@@ -75,6 +76,7 @@ console.log("Repetitions: " + contains(array1, toFind, 'repetitions'))
 ```
 
 Test 2a: Searching object ({'sex':'F','name':'pepa'}) in array of objects --> Found.
+
 Test 2b: Searching object ({'sex':'F','name':'pep'}) in array of objects  --> Not Found.
 
 ```
@@ -98,7 +100,9 @@ console.log("Repetitions: " + contains(array2, toFind, 'repetitions'))
 ```
 
 Test 3a: Searching object by simple pattern --> Found.
+
 Test 3b: Searching object by double pattern --> Found.
+
 Test 3c: Searching object by double pattern --> Not Found.
 
 ```
@@ -131,6 +135,7 @@ console.log("Repetitions: " + contains(array2, pattern, 'repetitions'))
 ```
 
 Test 4a: Searching substring by regular expresion (/el./g)  --> Found.
+
 Test 4b: Searching substring by regular expresion (/xxx/g)  --> Not Found.
 
 ```
@@ -157,6 +162,7 @@ console.log("Repetitions: " + contains(word, substring, 'repetitions'))
 ```
 
 Test 5a: Searching numbers by regular expresion (/23./g) --> Found.
+
 Test 5b: Searching numbers by regular expresion (/00/g)  --> Not Found.
 
 ```

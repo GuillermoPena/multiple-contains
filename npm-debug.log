@@ -20,28 +20,29 @@
 8 verbose parsed url   href: '.' }
 9 silly lockFile 3a52ce78- .
 10 verbose lock . /home/guiller/.npm/3a52ce78-.lock
-11 verbose tar pack [ '/home/guiller/.npm/contains/0.0.1/package.tgz', '.' ]
-12 verbose tarball /home/guiller/.npm/contains/0.0.1/package.tgz
+11 verbose tar pack [ '/home/guiller/.npm/multiple-contains/0.0.1/package.tgz',
+11 verbose tar pack   '.' ]
+12 verbose tarball /home/guiller/.npm/multiple-contains/0.0.1/package.tgz
 13 verbose folder .
-14 info prepublish contains@0.0.1
+14 info prepublish multiple-contains@0.0.1
 15 silly lockFile 1f1177db-tar tar://.
 16 verbose lock tar://. /home/guiller/.npm/1f1177db-tar.lock
-17 silly lockFile 20a156a6-r-npm-contains-0-0-1-package-tgz tar:///home/guiller/.npm/contains/0.0.1/package.tgz
-18 verbose lock tar:///home/guiller/.npm/contains/0.0.1/package.tgz /home/guiller/.npm/20a156a6-r-npm-contains-0-0-1-package-tgz.lock
+17 silly lockFile de87bcc3-tiple-contains-0-0-1-package-tgz tar:///home/guiller/.npm/multiple-contains/0.0.1/package.tgz
+18 verbose lock tar:///home/guiller/.npm/multiple-contains/0.0.1/package.tgz /home/guiller/.npm/de87bcc3-tiple-contains-0-0-1-package-tgz.lock
 19 silly lockFile 1f1177db-tar tar://.
 20 silly lockFile 1f1177db-tar tar://.
-21 silly lockFile 20a156a6-r-npm-contains-0-0-1-package-tgz tar:///home/guiller/.npm/contains/0.0.1/package.tgz
-22 silly lockFile 20a156a6-r-npm-contains-0-0-1-package-tgz tar:///home/guiller/.npm/contains/0.0.1/package.tgz
-23 silly lockFile 2a443839-iller-npm-contains-0-0-1-package /home/guiller/.npm/contains/0.0.1/package
-24 verbose lock /home/guiller/.npm/contains/0.0.1/package /home/guiller/.npm/2a443839-iller-npm-contains-0-0-1-package.lock
-25 silly lockFile 2a443839-iller-npm-contains-0-0-1-package /home/guiller/.npm/contains/0.0.1/package
-26 silly lockFile 2a443839-iller-npm-contains-0-0-1-package /home/guiller/.npm/contains/0.0.1/package
+21 silly lockFile de87bcc3-tiple-contains-0-0-1-package-tgz tar:///home/guiller/.npm/multiple-contains/0.0.1/package.tgz
+22 silly lockFile de87bcc3-tiple-contains-0-0-1-package-tgz tar:///home/guiller/.npm/multiple-contains/0.0.1/package.tgz
+23 silly lockFile a565fb5b--multiple-contains-0-0-1-package /home/guiller/.npm/multiple-contains/0.0.1/package
+24 verbose lock /home/guiller/.npm/multiple-contains/0.0.1/package /home/guiller/.npm/a565fb5b--multiple-contains-0-0-1-package.lock
+25 silly lockFile a565fb5b--multiple-contains-0-0-1-package /home/guiller/.npm/multiple-contains/0.0.1/package
+26 silly lockFile a565fb5b--multiple-contains-0-0-1-package /home/guiller/.npm/multiple-contains/0.0.1/package
 27 silly lockFile 3a52ce78- .
 28 silly lockFile 3a52ce78- .
-29 silly publish { name: 'contains',
+29 silly publish { name: 'multiple-contains',
 29 silly publish   version: '0.0.1',
-29 silly publish   description: 'Search item in container. Return index, existence, object... anything you want',
-29 silly publish   homepage: 'http://github.com/GuillermoPena/contains',
+29 silly publish   description: 'Search item in container (arrays, arrays of objects, strings, numbers...). Return index, existence, object, repetitions... anything you want!',
+29 silly publish   homepage: 'http://github.com/GuillermoPena/multiple-contains',
 29 silly publish   keywords: [ 'array', 'element', 'search', 'find' ],
 29 silly publish   author:
 29 silly publish    { name: 'Guillermo Peña',
@@ -50,62 +51,53 @@
 29 silly publish   engines: { node: '>=0.6.19' },
 29 silly publish   repository:
 29 silly publish    { type: 'git',
-29 silly publish      url: 'git://github.com/GuillermoPena/contains.git' },
+29 silly publish      url: 'git://github.com/GuillermoPena/multiple-contains.git' },
 29 silly publish   bugs: { url: 'http://github.com/GuillermoPena/contains/issues/' },
 29 silly publish   directories: { test: './test' },
 29 silly publish   licenses:
 29 silly publish    [ { type: 'Apache License, Version 2.0',
 29 silly publish        url: 'http://www.apache.org/licenses/LICENSE-2.0' } ],
 29 silly publish   dependencies: {},
-29 silly publish   main: './contains.js',
-29 silly publish   readme: '\n# Contains\n\nSearch item in container. Return index, existence, object... anything you want\n...and search in arrays, arrays of objects, strings, numbers!\n\n## How Install\n\n\tnpm install contains\n\n## How it works\n\nSearch different info in container in order to mode value\n\n\t* Type of containers:\n\t- Number\n\t- String\n\t- Array\n\t- ~~Object~~\n\n\t* Type of \'items\':\n\t- Object: with \'key\' and \'value\' to find in array of objects or in object\n\t- String: contained in array, key of object, substring of string...\n\t- Number: contained in array, substring of string, digit of number...\n\n\t* Mode values (default: \'index\'):\n\t- \'exists\': return true or false if item exists in container\n\t- \'index\' : return index of item in container (default: -1)\n\t- \'object\': return full item\n\t- ~~\'subarray\': return subarray with items in container~~\n\t- ~~\'repetitions\': return how many times is item in container~~\n\n\n## Quick Examples\n\n```\nvar array1 = [ \'papa\', \'pepe\', \'pipi\' ]\nvar array2 = [ { "sex":"H", "name":"paco" }\n             , { "sex":"M", "name":"pepa" }\n             , { "sex":"H", "name":"pepe" }\n             ]\n\n\n// --- Test 1 ------------------------------------------------------------------\n\nconsole.log("\\nTest 1: Searching item (\'pepe\') in array")\nconsole.dir(array1)\n\nvar toFind = \'pepe\'\nconsole.log("Exists? " + contains(array1, toFind, \'exists\'))\nconsole.log("Index: "  + contains(array1, toFind))\nconsole.log("Object: " + contains(array1, toFind, \'object\'))\n\nconsole.log("\\nTest 1b: Searching item (\'xxx\') in array")\ntoFind = \'xxx\'\nconsole.log("Exists? " + contains(array1, toFind, \'exists\'))\nconsole.log("Index: "  + contains(array1, toFind))\nconsole.log("Object: " + contains(array1, toFind, \'object\'))\n\n// --- Test 2 ------------------------------------------------------------------\n\nconsole.log("\\n\\nTest 2: Searching object ({\'sex\':\'M\',\'name\':\'pepa\'}) in array of objects")\nconsole.dir(array2)\ntoFind = { "sex":"M", "name":"pepa" }\nconsole.log("Exists? " + contains(array2, toFind, \'exists\'))\nconsole.log("Index: "  + contains(array2, toFind))\nconsole.log("Object: " + contains(array2, toFind, \'object\'))\n\nconsole.log("\\nTest 2b: Searching object ({\'sex\':\'M\',\'name\':\'xxx\'}) in array of objects")\ntoFind = { "sex":"M", "name":"xxx" }\nconsole.log("Exists? " + contains(array2, toFind, \'exists\'))\nconsole.log("Index: "  + contains(array2, toFind))\nconsole.log("Object: " + contains(array2, toFind, \'object\'))\n\n// --- Test 3 ------------------------------------------------------------------\n\nconsole.log("\\n\\nTest 3: Searching {key, value} ({\'key\':\'sex\',\'name\':\'H\'}) matches in array of objects")\nconsole.dir(array2)\nvar pattern = { "key":"sex", "value":"H" }\nconsole.log("Exists? " + contains(array2, pattern, \'exists\'))\nconsole.log("Index: "  + contains(array2, pattern))\nconsole.log("Object: " + contains(array2, pattern, \'object\'))\n\nconsole.log("\\nTest 3b: Searching {key, value} ({\'key\':\'sex\',\'name\':\'X\'}) matches in array of objects")\nconsole.dir(array2)\nvar pattern = { "key":"sex", "value":"X" }\nconsole.log("Exists? " + contains(array2, pattern, \'exists\'))\nconsole.log("Index: "  + contains(array2, pattern))\nconsole.log("Object: " + contains(array2, pattern, \'object\'))\n\n// --- Test 4 ------------------------------------------------------------------\n\nvar word = "elefant"\nvar substring = \'ele\'\n\nconsole.log("\\n\\nTest 4: Searching substring")\nconsole.dir("Word: " + word + " - Substring to find: " +  substring)\nconsole.log("Exists? " + contains(word, substring, \'exists\'))\nconsole.log("Index: "  + contains(word, substring))\nconsole.log("Object: " + contains(word, substring, \'object\'))\n\nsubstring = \'xxx\'\nconsole.log("\\nTest 4b: Searching substring")\nconsole.dir("Word: " + word + " - Substring to find: " +  substring)\nconsole.log("Exists? " + contains(word, substring, \'exists\'))\nconsole.log("Index: "  + contains(word, substring))\nconsole.log("Object: " + contains(word, substring, \'object\'))\n\n// --- Test 5 ------------------------------------------------------------------\n\nvar number = 1234\nvar subnumber = 23\n\nconsole.log("\\n\\nTest 5: Searching digit or subnumber")\nconsole.dir("Number: " + number + " - Digit or subnumber to find: " +  subnumber)\nconsole.log("Exists? " + contains(number, subnumber, \'exists\'))\nconsole.log("Index: "  + contains(number, subnumber))\nconsole.log("Object: " + contains(number, subnumber, \'object\'))\n\nconsole.log("\\nTest 5b: Searching digit or subnumber")\nsubnumber = 00\nconsole.dir("Number: " + number + " - Digit or subnumber to find: " +  subnumber)\nconsole.log("Exists? " + contains(number, subnumber, \'exists\'))\nconsole.log("Index: "  + contains(number, subnumber))\nconsole.log("Object: " + contains(number, subnumber, \'object\'))\n```\n',
+29 silly publish   main: './multiple-contains.js',
+29 silly publish   readme: '\n# Contains\n\nSearch item in container (arrays, arrays of objects, strings, numbers...).\nReturn index, existence, object, repetitions... anything you want!\n\n## How Install\n\n\tnpm install multiple-contains\n\n## How it works\n\nSearch different info in container in order to mode value\n\nType of containers:\n\n  - Number\n  - String\n  - Array\n  - TODO: Object\n\n\nType of \'items\':\n\n  - Object: with \'key\' and \'value\' to find in array of objects or in object\n  - String: contained in array, key of object, substring of string...\n  - Number: contained in array, substring of string, digit of number...\n\n\nMode values (default: \'index\'):\n\n  - \'exists\': return true or false if item exists in container\n  - \'index\' : return first index of item in container (default: -1)\n  - \'object\': return full item\n  - \'filter\': return subarray with matched items in array or regular expresions\nresults in string or number\n  - \'repetitions\': return how many times is item or regular expresion in\ncontainer\n\n\n## Quick Examples\n\nTest 1a: Searching item (\'pepe\') in array --> Found.\nTest 1b: Searching item (\'pep\') in array  --> Not Found.\n\n```\nvar contains = require(\'../multiple-contains.js\')\nvar util     = require(\'util\')\n\nvar array1 = [ \'papa\', \'pepe\', \'pipi\' ]\nvar array2 = [ { "sex":"M", "name":"paco" }\n             , { "sex":"F", "name":"pepa" }\n             , { "sex":"M", "name":"pepe" }\n             ]\n\n\n// --- Test 1 ------------------------------------------------------------------\n\nconsole.log("\\nTest 1a: Searching item (\'pepe\') in array")\nconsole.dir(array1)\n\nvar toFind = \'pepe\'\nconsole.log("Exists? " + contains(array1, toFind, \'exists\'))\nconsole.log("Index: "  + contains(array1, toFind))\nconsole.log("Filter: " + util.inspect(contains(array1, toFind, \'filter\')))\nconsole.log("Repetitions: " + contains(array1, toFind, \'repetitions\'))\n\nconsole.log("\\nTest 1b: Searching item (\'pep\') in array")\ntoFind = \'pep\'\nconsole.log("Exists? " + contains(array1, toFind, \'exists\'))\nconsole.log("Index: "  + contains(array1, toFind))\nconsole.log("Filter: " + util.inspect(contains(array1, toFind, \'filter\')))\nconsole.log("Repetitions: " + contains(array1, toFind, \'repetitions\'))\n\n```\n\nTest 2a: Searching object ({\'sex\':\'F\',\'name\':\'pepa\'}) in array of objects --> Found.\nTest 2b: Searching object ({\'sex\':\'F\',\'name\':\'pep\'}) in array of objects  --> Not Found.\n\n```\n// --- Test 2 ------------------------------------------------------------------\n\nconsole.log("\\n\\nTest 2: Searching object ({\'sex\':\'F\',\'name\':\'pepa\'}) in array of objects")\nconsole.dir(array2)\ntoFind = { "sex":"F", "name":"pepa" }\nconsole.log("Exists? " + contains(array2, toFind, \'exists\'))\nconsole.log("Index: "  + contains(array2, toFind))\nconsole.log("Filter: " + util.inspect(contains(array2, toFind, \'filter\')))\nconsole.log("Repetitions: " + contains(array2, toFind, \'repetitions\'))\n\nconsole.log("\\nTest 2b: Searching object ({\'sex\':\'F\',\'name\':\'pep\'}) in array of objects")\ntoFind = { "sex":"F", "name":"pep" }\nconsole.log("Exists? " + contains(array2, toFind, \'exists\'))\nconsole.log("Index: "  + contains(array2, toFind))\nconsole.log("Filter: " + util.inspect(contains(array2, toFind, \'filter\')))\nconsole.log("Repetitions: " + contains(array2, toFind, \'repetitions\'))\n\n```\n\nTest 3a: Searching object by simple pattern --> Found.\nTest 3b: Searching object by double pattern --> Found.\nTest 3c: Searching object by double pattern --> Not Found.\n\n```\n// --- Test 3 ------------------------------------------------------------------\n\nconsole.log("\\n\\nTest 3: Searching {key, value} ({\'key\':\'sex\',\'name\':\'M\'}) matches in array of objects")\nconsole.dir(array2)\nvar pattern = { "key":"sex", "value":"M" }\nconsole.log("Exists? " + contains(array2, pattern, \'exists\'))\nconsole.log("Index: "  + contains(array2, pattern))\nconsole.log("Filter: " + util.inspect(contains(array2, pattern, \'filter\')))\nconsole.log("Repetitions: " + contains(array2, pattern, \'repetitions\'))\n\nconsole.log("\\nTest 3b: Searching {key, value} array ([{\'key\':\'sex\',\'name\':\'M\'},{\'key\':\'name\',\'name\':\'pepe\'}]) matches in array of objects")\nconsole.dir(array2)\npattern = [{\'key\':\'sex\',\'value\':\'M\'},{\'key\':\'name\',\'value\':\'pepe\'}]\nconsole.log("Exists? " + contains(array2, pattern, \'exists\'))\nconsole.log("Index: "  + contains(array2, pattern))\nconsole.log("Filter: " + util.inspect(contains(array2, pattern, \'filter\')))\nconsole.log("Repetitions: " + contains(array2, pattern, \'repetitions\'))\n\nconsole.log("\\nTest 3c: Searching {key, value} array ([{\'key\':\'sex\',\'name\':\'M\'},{\'key\':\'name\',\'name\':\'pep\'}]) matches in array of objects")\nconsole.dir(array2)\npattern = [{\'key\':\'sex\',\'value\':\'M\'},{\'key\':\'name\',\'value\':\'pep\'}]\nconsole.log("Exists? " + contains(array2, pattern, \'exists\'))\nconsole.log("Index: "  + contains(array2, pattern))\nconsole.log("Filter: " + util.inspect(contains(array2, pattern, \'filter\')))\nconsole.log("Repetitions: " + contains(array2, pattern, \'repetitions\'))\n\n```\n\nTest 4a: Searching substring by regular expresion (/el./g)  --> Found.\nTest 4b: Searching substring by regular expresion (/xxx/g)  --> Not Found.\n\n```\n// --- Test 4 ------------------------------------------------------------------\n\nvar word = "elefant elam "\nvar substring = \'el.\'\n\nconsole.log("\\n\\nTest 4: Searching substring")\nconsole.log("Word: " + word + " - Substring to find: " +  substring)\nconsole.log("Exists? " + contains(word, substring, \'exists\'))\nconsole.log("Index: "  + contains(word, substring))\nconsole.log("Filter: " + util.inspect(contains(word, substring, \'filter\')))\nconsole.log("Repetitions: " + contains(word, substring, \'repetitions\'))\n\nsubstring = \'xxx\'\nconsole.log("\\nTest 4b: Searching substring")\nconsole.log("Word: " + word + " - Substring to find: " +  substring)\nconsole.log("Exists? " + contains(word, substring, \'exists\'))\nconsole.log("Index: "  + contains(word, substring))\nconsole.log("Filter: " + util.inspect(contains(word, substring, \'filter\')))\nconsole.log("Repetitions: " + contains(word, substring, \'repetitions\'))\n\n```\n\nTest 5a: Searching numbers by regular expresion (/23./g) --> Found.\nTest 5b: Searching numbers by regular expresion (/00/g)  --> Not Found.\n\n```\n// --- Test 5 ------------------------------------------------------------------\n\nvar number = 123423\nvar subnumber = "23."\n\nconsole.log("\\n\\nTest 5: Searching digit or subnumber")\nconsole.log("Number: " + number + " - Digit or subnumber to find: " +  subnumber)\nconsole.log("Exists? " + contains(number, subnumber, \'exists\'))\nconsole.log("Index: "  + contains(number, subnumber))\nconsole.log("Filter: " + util.inspect(contains(number, subnumber, \'filter\')))\nconsole.log("Repetitions: " + contains(number, subnumber, \'repetitions\'))\n\nconsole.log("\\nTest 5b: Searching digit or subnumber")\nsubnumber = 00\nconsole.log("Number: " + number + " - Digit or subnumber to find: " +  subnumber)\nconsole.log("Exists? " + contains(number, subnumber, \'exists\'))\nconsole.log("Index: "  + contains(number, subnumber))\nconsole.log("Filter: " + util.inspect(contains(number, subnumber, \'filter\')))\nconsole.log("Repetitions: " + contains(number, subnumber, \'repetitions\'))\n```\n',
 29 silly publish   readmeFilename: 'README.md',
-29 silly publish   gitHead: 'cde350e35d652adebebdb00b6889f6bbb1711d77',
-29 silly publish   _id: 'contains@0.0.1',
+29 silly publish   gitHead: '82711fa8207cc3705d6f8cb780d0bcda1eae4636',
+29 silly publish   _id: 'multiple-contains@0.0.1',
 29 silly publish   scripts: {},
-29 silly publish   _shasum: '50e4560f7803d2e7e801dd58588d46253c0c6b9d',
+29 silly publish   _shasum: 'b8484d6dcaf4aa7d4f60707e3619b4f89bdeb08b',
 29 silly publish   _from: '.' }
-30 verbose request where is /contains
+30 verbose request where is /multiple-contains
 31 verbose request registry https://registry.npmjs.org/
-32 verbose request id 32ce6109c4836be0
-33 verbose url raw /contains
-34 verbose url resolving [ 'https://registry.npmjs.org/', './contains' ]
-35 verbose url resolved https://registry.npmjs.org/contains
-36 verbose request where is https://registry.npmjs.org/contains
-37 info trying registry request attempt 1 at 22:49:10
-38 http PUT https://registry.npmjs.org/contains
-39 http 401 https://registry.npmjs.org/contains
-40 verbose headers { date: 'Tue, 31 Mar 2015 20:49:11 GMT',
-40 verbose headers   server: 'Apache',
-40 verbose headers   'content-type': 'application/json',
-40 verbose headers   'cache-control': 'max-age=60',
-40 verbose headers   'content-length': '38',
-40 verbose headers   'accept-ranges': 'bytes',
-40 verbose headers   via: '1.1 varnish',
-40 verbose headers   'x-served-by': 'cache-lcy1120-LCY',
-40 verbose headers   'x-cache': 'MISS',
-40 verbose headers   'x-cache-hits': '0',
-40 verbose headers   'x-timer': 'S1427834950.728655,VS0,VE609',
-40 verbose headers   'keep-alive': 'timeout=10, max=50',
-40 verbose headers   connection: 'Keep-Alive' }
-41 error publish Failed PUT 401
-42 error Error: Request was not authorized : contains
-42 error     at RegClient.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:308:14)
-42 error     at Request._callback (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:246:65)
-42 error     at Request.self.callback (/usr/lib/node_modules/npm/node_modules/request/request.js:236:22)
-42 error     at Request.emit (events.js:98:17)
-42 error     at Request.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:1142:14)
-42 error     at Request.emit (events.js:117:20)
-42 error     at IncomingMessage.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:1096:12)
-42 error     at IncomingMessage.emit (events.js:117:20)
-42 error     at _stream_readable.js:943:16
-42 error     at process._tickCallback (node.js:419:13)
-43 error If you need help, you may report this *entire* log,
-43 error including the npm and node versions, at:
-43 error     <http://github.com/npm/npm/issues>
-44 error System Linux 3.13.0-48-generic
-45 error command "/usr/bin/node" "/usr/bin/npm" "publish"
-46 error cwd /home/guiller/code/contains
-47 error node -v v0.10.33
-48 error npm -v 1.4.28
-49 verbose exit [ 1, true ]
+32 verbose request id 3760455ee528a0cd
+33 verbose url raw /multiple-contains
+34 verbose url resolving [ 'https://registry.npmjs.org/', './multiple-contains' ]
+35 verbose url resolved https://registry.npmjs.org/multiple-contains
+36 verbose request where is https://registry.npmjs.org/multiple-contains
+37 info trying registry request attempt 1 at 17:03:21
+38 http PUT https://registry.npmjs.org/multiple-contains
+39 http 409 https://registry.npmjs.org/multiple-contains
+40 verbose request where is /multiple-contains?write=true
+41 verbose request registry https://registry.npmjs.org/
+42 verbose url raw /multiple-contains?write=true
+43 verbose url resolving [ 'https://registry.npmjs.org/',
+43 verbose url resolving   './multiple-contains?write=true' ]
+44 verbose url resolved https://registry.npmjs.org/multiple-contains?write=true
+45 verbose request where is https://registry.npmjs.org/multiple-contains?write=true
+46 info trying registry request attempt 1 at 17:03:26
+47 http GET https://registry.npmjs.org/multiple-contains?write=true
+48 http 200 https://registry.npmjs.org/multiple-contains?write=true
+49 error publish fail Cannot publish over existing version.
+49 error publish fail Update the 'version' field in package.json and try again.
+49 error publish fail
+49 error publish fail If the previous version was published in error, see:
+49 error publish fail     npm help unpublish
+49 error publish fail
+49 error publish fail To automatically increment version numbers, see:
+49 error publish fail     npm help version
+50 error System Linux 3.13.0-48-generic
+51 error command "/usr/bin/node" "/usr/bin/npm" "publish"
+52 error cwd /home/guiller/code/contains
+53 error node -v v0.10.33
+54 error npm -v 1.4.28
+55 error code EPUBLISHCONFLICT
+56 verbose exit [ 1, true ]

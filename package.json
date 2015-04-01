@@ -1,7 +1,6 @@
 { "name": "multiple-contains"
-, "version": "0.0.1"
-, "description": "Search item in container (arrays, arrays of objects, strings, numbers...).
-Return index, existence, object, repetitions... anything you want!"
+, "version": "0.0.2"
+, "description": "Search item in container (arrays, arrays of objects, strings, numbers...). Return index, existence, object, repetitions... anything you want!"
 , "homepage": "http://github.com/GuillermoPena/multiple-contains"
 , "keywords": ["array", "element", "search", "find"]
 , "author":
