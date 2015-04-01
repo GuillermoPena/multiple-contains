@@ -3,3 +3,9 @@
 ==================
 
   * Initial release
+
+0.0.2 / 2010-01-03
+==================  
+
+  * 'filter' mode added
+  * 'repetitions' mode added
